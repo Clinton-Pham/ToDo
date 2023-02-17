@@ -1,4 +1,6 @@
 // Standard interface and functions
+import * as React from "react";
+
 export interface Todo {
   id: number;
   text: string;
@@ -28,3 +30,8 @@ export const addTodo = (todos: Todo[], text: string): Todo[] => [
     done: false,
   },
 ];
+
+export const useTodos = (initial: Todo[]) => React.useState<Todo[]>(initial);
+export type useTodosType = ReturnType<typeof useTodos>;
+export type TodosType = useTodosType[0];
+export type SetTodosType = useTodosType[1];
